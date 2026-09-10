@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>先锋.禁止BOSS解锁印痕 软件简介</title>
+<style>
+/* ============================================================
+   样式区：禁止修改！
+   本模板是 xiangmujiaocheng 技能的「软件简介」专属模板（清爽文档蓝）。
+   修改此区会破坏所有项目软件简介的视觉统一。
+   ============================================================ */
+:root{--acc:#2563eb;--accbg:#eff6ff;--line:#e2e8f0;--line2:#cbd5e1;--text:#1e293b;--dim:#64748b;--bg2:#f8fafc;--ok:#16a34a;--warn:#d97706;--warnbg:#fffbeb;--warnline:#fde68a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:15.5px/1.85 "Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;color:var(--text);background:#fff}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+code{background:var(--accbg);color:#1d4ed8;border-radius:4px;padding:1px 7px;font-family:Consolas,"Courier New",monospace;font-size:13.5px}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:13px 16px;overflow:auto}
+pre code{background:none;color:#0f172a;padding:0}
+.hide{display:none!important}
+
+.hero{background:linear-gradient(180deg,#eef5ff 0%,#ffffff 100%);border-bottom:1px solid var(--line);padding:44px 20px 32px;text-align:center}
+.kind{display:inline-block;background:var(--acc);color:#fff;border-radius:4px;font-size:13px;padding:2px 12px;letter-spacing:2px}
+.hero h1{margin:14px 0 8px;font-size:34px}
+.hero h1 .accent{color:var(--acc)}
+.hero .sub{color:var(--dim);margin:0 auto;max-width:640px;font-size:15.5px}
+
+.toolbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 3px rgba(15,23,42,.05)}
+.toolbar-in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 20px}
+#searchInput{flex:1 1 240px;border:1px solid var(--line2);border-radius:8px;padding:8px 14px;font-size:14.5px;outline:none;background:var(--bg2)}
+#searchInput:focus{border-color:var(--acc);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line2);background:#fff;color:var(--dim);border-radius:999px;padding:5px 15px;font-size:13.5px;cursor:pointer}
+.chip:hover{border-color:var(--acc);color:var(--acc)}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.count{color:var(--dim);font-size:13px;white-space:nowrap}
+
+.content{max-width:980px;margin:0 auto;padding:30px 20px 70px}
+
+.unit{margin:0 0 38px}
+.group{font-size:12.5px;color:var(--acc);letter-spacing:2px;margin-bottom:4px}
+.unit>h2{margin:0 0 10px;font-size:22px;border-left:4px solid var(--acc);padding-left:12px}
+.lead{color:var(--dim);margin:0 0 14px;font-size:14.5px}
+.unit h3{font-size:16.5px;margin:20px 0 8px}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:13px;margin:16px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 17px;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:.15s}
+.card:hover{border-color:var(--acc);box-shadow:0 4px 14px rgba(37,99,235,.12)}
+.card .icon{font-size:22px}
+.card h4{margin:7px 0 5px;font-size:15.5px;color:var(--acc)}
+.card p{margin:0;color:var(--dim);font-size:13.5px}
+
+.note,.warning{border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14.5px}
+.note{background:var(--accbg);border:1px solid #bfdbfe}
+.warning{background:var(--warnbg);border:1px solid var(--warnline)}
+
+table.data-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+.data-table th{background:var(--accbg);color:#1d4ed8;text-align:left}
+.data-table th,.data-table td{border:1px solid var(--line);padding:8px 13px}
+.data-table tr:nth-child(even) td{background:#fbfdff}
+
+details.faq{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px 16px;margin:9px 0}
+details.faq summary{cursor:pointer;font-weight:600}
+details.faq[open]{border-color:var(--acc)}
+details.faq .answer{color:var(--dim);padding-top:7px}
+
+.shot{border:2px dashed var(--line2);border-radius:8px;padding:26px;text-align:center;color:var(--dim);font-size:14px;margin:13px 0}
+.badge{display:inline-block;border-radius:4px;padding:1px 10px;font-size:12.5px;margin-right:6px;color:var(--acc);border:1px solid var(--acc)}
+.badge.ok{color:var(--ok);border-color:var(--ok)}
+.badge.warn{color:var(--warn);border-color:var(--warn)}
+.empty{border:1px dashed var(--line2);border-radius:10px;padding:44px;text-align:center;color:var(--dim);margin:20px 0}
+
+.foot{border-top:1px solid var(--line);color:var(--dim);text-align:center;padding:20px;font-size:13px;background:var(--bg2)}
+@media (max-width:640px){.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="kind">软件简介</span>
+  <h1>先锋.禁止BOSS解锁印痕 <span class="accent">科技进度 服主掌控</span></h1>
+  <p class="sub">一键关闭「击杀 BOSS 自动解锁印痕」：BOSS 照打、战利品照掉，泰克等印痕的获取方式回归服务器自己的规则。</p>
+</header>
+
+<div class="toolbar"><div class="toolbar-in">
+  <input id="searchInput" type="search" placeholder="搜索功能…">
+  <div class="chips">
+    <button class="chip on" data-cat="all">全部</button>
+    <button class="chip" data-cat="core">核心卖点</button>
+    <button class="chip" data-cat="adv">特色功能</button>
+    <button class="chip" data-cat="env">适配与购买</button>
+  </div>
+  <span class="count" id="resultCount"></span>
+</div></div>
+
+<main class="content">
+
+<section class="unit" id="s1" data-cat="core">
+  <div class="group">01 · 软件定位</div>
+  <h2>软件定位</h2>
+  <p>方舟原版设定里，玩家击杀 BOSS 会自动解锁对应的奖励印痕（如泰克科技装备）。对想自己掌控科技进度的服务器来说，这个「自动送」绕不开——泰克节奏、PVP 平衡、玩法设计都被它牵着走。</p>
+  <p>先锋.禁止BOSS解锁印痕把这个开关交还给服主：一个配置项关闭全部「击杀 BOSS 自动解锁印痕」。BOSS 照常死亡、战利品照常掉落，只有印痕不再自动解锁——泰克装备改由活动、商店、管理员发放等服务器自己的规则发放。</p>
+</section>
+
+<section class="unit" id="s2" data-cat="env">
+  <div class="group">02 · 适配环境</div>
+  <h2>适配环境</h2>
+  <table class="data-table">
+    <tr><th style="width:150px">项目</th><th>要求</th></tr>
+    <tr><td>操作系统</td><td>Windows</td></tr>
+    <tr><td>服务端插件框架</td><td>ArkApi ≥ 3.5（<code>ArkApi.lib</code>，头文件 <code>API/Ark/Ark.h</code>，见 <code>Output/PluginInfo.json</code>）</td></tr>
+    <tr><td>数据库</td><td>不需要（插件不使用数据库）</td></tr>
+    <tr><td>编译工具（开发者）</td><td>Visual Studio 2019 v142 工具集（更高版本亦可）、MSBuild</td></tr>
+  </table>
+</section>
+
+<div class="card-grid">
+  <div class="unit card" data-cat="core"><div class="icon">🦖</div><h4>拦截BOSS击杀印痕</h4><p>BOSS 死亡瞬间清空奖励印痕列表，泰克等印痕不再自动解锁。</p></div>
+  <div class="unit card" data-cat="core"><div class="icon">⚔️</div><h4>零干扰设计</h4><p>BOSS 照常死亡、掉落照常结算，只拿走「自动解锁印痕」这一件事。</p></div>
+  <div class="unit card" data-cat="core"><div class="icon">🎚️</div><h4>单键开关</h4><p>一个 true / false 控制全部行为，配置缺失时安全放行不出错。</p></div>
+  <div class="unit card" data-cat="adv"><div class="icon">🔄</div><h4>配置热重载</h4><p>控制台 / RCON 一条 Reload 命令，改完开关免重启立即生效。</p></div>
+  <div class="unit card" data-cat="adv"><div class="icon">🚀</div><h4>一键多服部署</h4><p>一条脚本把 DLL 和配置铺到所有服务器的插件目录，支持停用副本。</p></div>
+  <div class="unit card" data-cat="adv"><div class="icon">📝</div><h4>编码自适应日志</h4><p>3.54 / 3.55 服务器控制台通吃，中文输出不乱码，异常有红字提示。</p></div>
+</div>
+
+<section class="unit" id="s3" data-cat="core">
+  <div class="group">03 · 重点功能</div>
+  <h2>BOSS 击杀印痕拦截 <span class="badge ok">核心</span></h2>
+  <p><b>什么功能：</b>插件挂钩恐龙死亡事件（<code>APrimalDinoCharacter.Die</code>）：BOSS 恐龙死亡时（游戏自身的 <code>IsBossDino</code> 判定），清空其自带的奖励印痕列表（<code>DeathGiveEngramClasses</code>），再原样放行死亡流程。</p>
+  <p><b>什么作用：</b>参与击杀的玩家不再自动解锁该 BOSS 的奖励印痕；BOSS 的死亡、战利品、经验完全不受影响，玩家已解锁的印痕也不会被收回。</p>
+  <p><b>给你的好处：</b>没有它，泰克印痕跟着 BOSS 击杀自动到手，科技节奏失控且没法关。有了它，一个开关就把印痕发放权收回服主手里——配合服务器活动、商店或管理员发放，PVP / PVE 的科技进度完全按你的设计走。</p>
+</section>
+
+<section class="unit" id="s4" data-cat="core">
+  <div class="group">03 · 重点功能</div>
+  <h2>单键开关与配置热重载 <span class="badge ok">核心</span></h2>
+  <p><b>什么功能：</b><code>config.json</code> 里一个 <code>Settings.PreventUnlockEngram</code> 布尔值控制全部行为：<code>true</code> 拦截、<code>false</code> 恢复原版。控制台 / RCON 命令 <code>PreventBossEngramUnlock.Reload</code> 免重启重读配置。</p>
+  <p><b>什么作用：</b>线上开活动、临时恢复原版行为，改一行配置执行一条命令即可，从下一次 BOSS 被击杀起按新值执行，不用停服。</p>
+  <p><b>给你的好处：</b>没有它，调整行为要停服重启、劝退全服玩家。有了它，开关随时切、玩家无感知；配置键缺失或写错时插件安全放行（按原版运行），不会因配置问题影响服务器。</p>
+</section>
+
+<section class="unit" id="s5" data-cat="adv">
+  <div class="group">03 · 重点功能</div>
+  <h2>稳定与运维细节 <span class="badge">特色</span></h2>
+  <p><b>什么功能：</b>插件输出走自带日志模块，自动识别 3.54（GBK）/ 3.55（UTF-8）服务器控制台编码，中文横幅、调试信息不乱码；钩子安装失败时控制台红字提示（功能不生效但服务器其余运行不受影响）；测试版还会在每次 BOSS 死亡时输出印痕数量调试行，方便验证拦截是否生效。</p>
+  <p><b>什么作用：</b>多版本服务器混跑不用改配置；出问题第一时间在控制台看得见，不用翻日志猜原因。</p>
+  <p><b>给你的好处：</b>没有它，换台服务器可能就中文乱码、静默失效。有了它，加载横幅、调试输出、错误提示三样齐全，部署完当场就能确认插件在工作。</p>
+</section>
+
+<section class="unit" id="s6" data-cat="adv">
+  <div class="group">03 · 重点功能</div>
+  <h2>一键多服部署 <span class="badge">特色</span></h2>
+  <p><b>什么功能：</b><code>编译测试版.bat</code> / <code>编译正式版.bat</code> 双击出 DLL（正式版自动关调试输出并同步版本号）；<code>一键安装.bat</code> 把 DLL、config.json、PluginInfo.json 铺到服务器列表里的每台服务器（自动建目录，可选同时部署停用副本 <code>.dll.arkapi</code>）；<code>一键卸载.bat</code> / <code>一键清除.bat</code> / <code>一键附件.bat</code> 配套齐全。</p>
+  <p><b>什么作用：</b>从改代码到全部服务器更新到位，全程不用打开资源管理器逐台拷文件。</p>
+  <p><b>给你的好处：</b>服务器越多越省事；要临时停用某台，把 DLL 改名 <code>.dll.arkapi</code> 重启即可，随时可恢复。</p>
+</section>
+
+<section class="unit" id="s7" data-cat="core">
+  <div class="group">04 · 运行效果</div>
+  <h2>运行效果</h2>
+  <div class="shot">📷 此处应放截图：服务器控制台中「先锋.禁止BOSS解锁印痕(1.0)」加载横幅</div>
+  <div class="shot">📷 此处应放截图：测试版插件在 BOSS 死亡时输出的「----&gt;BOSS死亡, DeathGiveEngramClasses数量=N」调试日志</div>
+  <div class="shot">📷 此处应放截图：RCON 执行 PreventBossEngramUnlock.Reload 返回 Reloaded config 的画面</div>
+</section>
+
+<section class="unit" id="s8" data-cat="env">
+  <div class="group">05 · 价格与购买</div>
+  <h2>价格与购买</h2>
+  <div class="note">咨询与购买联系方式：QQ 711919；先锋方舟服主群 138535385（依据插件启动横幅与 <code>Output/PluginInfo.json</code>）。价格与版本划分以发布信息为准。</div>
+</section>
+
+<div class="empty hide" id="emptyState">没有匹配的内容，换个关键词或分类试试</div>
+</main>
+
+<footer class="foot">
+  先锋.禁止BOSS解锁印痕 · 软件简介 · 2026-09
+</footer>
+
+<script>
+(function(){
+var inp=document.getElementById('searchInput');
+var chips=[].slice.call(document.querySelectorAll('.chip'));
+var units=[].slice.call(document.querySelectorAll('.unit'));
+var empty=document.getElementById('emptyState');
+var cnt=document.getElementById('resultCount');
+var cat='all';
+function go(){
+  var q=(inp.value||'').trim().toLowerCase(),n=0;
+  units.forEach(function(u){
+    var okC=(cat=='all'||u.getAttribute('data-cat')==cat);
+    var t=(u.textContent||'').toLowerCase()+(u.getAttribute('data-kw')||'');
+    var okQ=!q||t.indexOf(q)>-1;
+    var s=okC&&okQ;u.classList.toggle('hide',!s);if(s)n++;
+  });
+  empty.classList.toggle('hide',n>0);
+  cnt.textContent=n+' / '+units.length+' 条';
+}
+chips.forEach(function(c){c.addEventListener('click',function(){
+  chips.forEach(function(x){x.classList.remove('on')});c.classList.add('on');
+  cat=c.getAttribute('data-cat');go();
+})});
+inp.addEventListener('input',go);go();
+})();
+</script>
+
+</body>
+</html>
